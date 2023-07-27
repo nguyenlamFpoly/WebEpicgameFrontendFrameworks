@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+
+<body>
+
+    <div class="sanpham">
+
+        <div class="container">
+            <div class="col-sm mt-5">
+            </div>
+            <div class="row no-gutters" style="margin-top: 15%;">
+                <h1 class="text-white">{{products[index].name}}<br class="mt-2">
+                    <p class="text-white" style="font-size: 13px;">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                        <span class="badge badge-secondary" style="font-size: 20;">4.8</span>
+                        &emsp;<i class="fa-solid fa-dragon text-success"></i> Great Boss Battles
+                        &emsp;<i class="fa-solid fa-globe text-info"></i> Diverse Characters
+                    </p>
+                </h1>
+
+                <!-- <div class="mt-5 mt-md-0">
+                    
+                </div> -->
+                <div class="col-12 col-sm-6 col-md-8 mt-5 mt-md-0">
+                    <div class="container">
+                        <div class="mySlidess">
+                            <img src="{{products[index].review1}}" style="width:100%">
+                        </div>
+                        <div class="mySlides">
+                            <img src="{{products[index].review1}}" style="width:100%">
+                        </div>
+
+                        <div class="mySlides">
+                            <img src="{{products[index].review2}}" style="width:100%">
+                        </div>
+
+                        <div class="mySlides">
+                            <img src="{{products[index].review3}}" style="width:100%">
+                        </div>
+
+                        <div class="mySlides">
+                            <img src="{{products[index].review4}}" style="width:100%">
+                        </div>
+
+                        <div class="mySlides">
+                            <img src="{{products[index].review5}}" style="width:100%">
+                        </div>
+
+                        <div class="mySlides">
+                            <img src="{{products[index].review6}}" style="width:100%">
+                        </div>
+
+                        <a class="prev" onclick="plusSlides(-1)">❮</a>
+                        <a class="next" onclick="plusSlides(1)">❯</a>
+
+
+
+                        <div class="row mt-3">
+                            <div class="column">
+                                <img class="demo cursor" src="{{products[index].review1}}" style="width:90%"
+                                    onclick="currentSlide(1)" alt="The Woods">
+                            </div>
+                            <div class="column">
+                                <img class="demo cursor" src="{{products[index].review2}}" style="width:90%"
+                                    onclick="currentSlide(2)" alt="Cinque Terre">
+                            </div>
+                            <div class="column">
+                                <img class="demo cursor" src="{{products[index].review3}}" style="width:90%"
+                                    onclick="currentSlide(3)" alt="Mountains and fjords">
+                            </div>
+                            <div class="column">
+                                <img class="demo cursor" src="{{products[index].review4}}" style="width:90%"
+                                    onclick="currentSlide(4)" alt="Northern Lights">
+                            </div>
+                            <div class="column">
+                                <img class="demo cursor" src="{{products[index].review5}}" style="width:90%"
+                                    onclick="currentSlide(5)" alt="Nature and sunrise">
+                            </div>
+                            <div class="column">
+                                <img class="demo cursor" src="{{products[index].review6}}" style="width:90%"
+                                    onclick="currentSlide(6)" alt="Snowy Mountains">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <p class="text-white mt-5" style="font-size: medium;">
+                        {{products[index].textIntro}}
+                    </p>
+
+                    <p class="text-white" style="font-size: small;">{{products[index].name}}</p>
+
+                    <p style="font-size: small; color: gray;">
+                        {{products[index].textIntro2}}
+                    </p>
+
+                    <h4 class="text-white mt-3">Specifications</h4>
+                    <div class="container" style="background-color: #202020; border-radius: 5px;">
+                        <div class="d-flex justify-content-between mb-3 mt-3">
+                            <div class="p-2 text-white h6">WINDOWS</div>
+                        </div>
+                        <hr style="background-color: gray;">
+                        <div class="row">
+                            <div class="col">
+                                <p class="text-muted">Minimum</p>
+                                <p class="text-muted">OS</p>
+                                <p class="text-white">Windows 10 64-bit</p>
+                                <p class="text-muted">Processor</p>
+                                <p class="text-white">{{products[index].MProcessor}}</p>
+                                <p class="text-muted">Memory</p>
+                                <p class="text-white">{{products[index].MMemory}}</p>
+                                <p class="text-muted">Storage</p>
+                                <p class="text-white">{{products[index].Storage}}</p>
+                                <p class="text-muted">Graphics</p>
+                                <p class="text-white">{{products[index].MGraphics}}</p>
+
+                            </div>
+                            <div class="col">
+                                <p class="text-muted">Recommended</p>
+                                <p class="text-muted">OS</p>
+                                <p class="text-white">Windows 10 64-bit</p>
+                                <p class="text-muted">Processor</p>
+                                <p class="text-white">{{products[index].RProcessor}}</p>
+                                <p class="text-muted">Memory</p>
+                                <p class="text-white">{{products[index].RMemory}}</p>
+                                <p class="text-muted">Storage</p>
+                                <p class="text-white">{{products[index].Storage}}</p>
+                                <p class="text-muted">Graphics</p>
+                                <p class="text-white">{{products[index].RGraphics}}</p>
+
+                            </div>
+                        </div>
+                        <p class="text-muted">Logins</p>
+                        <p class="text-white">Requires Epic Games account</p>
+                        <p class="text-muted mt-4">Languages Supported</p>
+                        <p class="text-white" style="font-size: smaller;">AUDIO: English, French, Italian, German,
+                            Spanish - Spain, Portuguese, Polish, Russian, Portuguese - Brazil, Spanish - Latin America,
+                            Japanese, Arabic
+                            TEXT: Chinese - Simplified, Chinese - Traditional, Czech, Dutch, Greek, Hungarian, Danish,
+                            Finnish, Norwegian, Swedish, Korean</p>
+                        <hr style="background-color: gray;">
+                        <p class="text-muted" style="text-align: center; font-size: small;">{{products[index].Privacy}}
+                        </p>
+                        <p class="text-white" style="text-align: center;">Privacy Policy</p>
+
+                    </div>
+                </div>
+
+
+                <div class="col-6 col-md-4">
+
+                    <div class="container">
+                        <div>
+                            <img src="{{products[index].intro}}" alt="" width="90%">
+                        </div>
+                        <span class="badge badge-secondary" style="font-size: 20;">Base Games</span>
+
+                        <p class="text-white">
+                            <span class="badge badge-primary" style="font-size: 20;"> {{products[index].sale}}%</span>
+                            <a class="text-muted" style="text-decoration-line: line-through;">
+                                ₫{{products[index].PriceSale | currency:"":0}}</a>
+                            ₫{{products[index].Price | currency:"":0}}
+                        </p>
+                        <button type="button" class="btn btn-primary" style="width: 100%;" data-toggle="modal"
+                        data-target="#exampleModal">Buy now</button>                       
+                        <!-- Button trigger modal -->
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content" style="background-color: #202020;">
+
+                                    <div class="modal-body">
+                                        <h2 class="text-center mt-5" style="color: #f5f5f5;"><img src="img/buy.png"
+                                                alt=""></h2>
+                                        <h2 class="text-center mt-3" style="color: #f5f5f5;">THANK YOU FOR</h2>
+                                        <h2 class="text-center mb-5" style="color: #f5f5f5;">BUYING</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button ng-click="addCart(products[index])" type="button" class="btn btn-secondary mt-2"
+                            style="width: 100%;">Add to cart <i class="fa-sharp fa-solid fa-cart-plus"></i></button>
+
+                        <p class="text-muted mt-3" style="font-size: 15px;">Refund Type <a
+                                class="text-white float-right">Self-Refundable</a></p>
+                        <hr style="background-color: #ccc;">
+                        <p class="text-muted mb-1" style="font-size: 15px;">Developer <a
+                                class="text-white float-right">{{products[index].Developer}}</a></p>
+                        <hr style="background-color: #ccc;">
+                        <p class="text-muted mb-1" style="font-size: 15px;">Publisher <a
+                                class="text-white float-right">{{products[index].Developer}}</a></p>
+                        <hr style="background-color: #ccc;">
+                        <p class="text-muted mb-1" style="font-size: 15px;">Release Date <a
+                                class="text-white float-right">{{products[index].ReleaseDate}}</a></p>
+                        <hr style="background-color: #ccc;">
+                        <p class="text-muted mb-1" style="font-size: 15px;">Platform <i
+                                class="fa-brands fa-windows text-white float-right"></i></p>
+                        <hr style="background-color: #ccc;">
+                        <div class="row">
+                            <div class="col">
+                                <button type="button" class="btn btn-outline-secondary text-white"
+                                    style="width: 90%; font-size: smaller;"><i
+                                        class="fa-sharp fa-solid fa-share-nodes"></i> SHARE</button>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-outline-secondary text-white"
+                                    style="width: 90%; font-size: smaller;"><i class="fa-sharp fa-solid fa-flag"></i>
+                                    REPORT</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+        <footer style="background-color: #202020;">
+
+            <div class="footer"
+                style=" border-bottom: 2px solid #cccccc; margin-left: 2%; margin-right: 2%; margin-top: 5%; padding: 3%;">
+
+                <div class="d-flex justify-content-between" style="margin-top: 3%;">
+                    <div class="p-2">
+                        <a href=""><i class="fa-brands fa-facebook"
+                                style="font-size:30px; color: #cccccc; width: 30px;"></i></a>
+                        <a href=""><i class="fa-brands fa-twitter"
+                                style="font-size:30px; color: #cccccc; width: 30px;"></i></a>
+                        <a href=""><i class="fa-brands fa-youtube"
+                                style="font-size:30px; color: #cccccc; width: 30px;"></i></a>
+                    </div>
+                    <div class="p-2">
+                        <a href=""> <i class="gg-chevron-up-r"></i></a>
+                    </div>
+                </div>
+                <p class="text-muted">Resources</p>
+                <p class="text-white">Support-A-Creator &emsp; &emsp; &emsp;&ensp;Fan Art Policy &emsp; Online Services
+                </p>
+                <p class="text-white">Distribute on Epic Games &emsp; UX Research &emsp; &ensp;Community Rules</p>
+                <p class="text-white">Careers &emsp; &emsp; &emsp;&emsp; &emsp;&emsp;&emsp; &emsp;Store EULA &emsp;
+                    &ensp; &ensp;Epic Newsroom</p>
+                <p class="text-white">Company</p>
+                <p></p>
+                <p class="text-muted">Made By Epic Games</p>
+                <p class="text-white">Battle Breakers &emsp; &emsp; &emsp;&ensp;Robo Recall</p>
+                <p class="text-white">Fortnite &emsp; &emsp; &emsp;&emsp;&emsp;&emsp;&ensp;Shadow Complex</p>
+                <p class="text-white">Infinity Blade &emsp; &emsp; &emsp;&ensp;&ensp;Unreal Tournament</p>
+
+
+            </div>
+            <div class="footer" style="margin-left: 2%; margin-right: 2%; margin-top: 2%;">
+                <p class="text-muted" style="font-size: small;">© 2023, Epic Games, Inc. All rights reserved. Epic, Epic
+                    Games, the Epic Games logo, Fortnite, the Fortnite logo, Unreal, Unreal Engine,<br>
+                    the Unreal Engine logo, Unreal Tournament, and the Unreal Tournament logo are trademarks or
+                    registered trademarks of<br>
+                    Epic Games, Inc. in the United States of America and elsewhere. Other brands or product<br>
+                    names are the trademarks of their respective owners. Non-US transactions through Epic Games
+                    International, S.à r.l.</p>
+
+
+                <div class="d-flex justify-content-between">
+                    <div class="p-2">
+                        <p class="text-muted" style="font-size:small;">Terms of Service&emsp; Privacy Policy&emsp; Store
+                            Refund Policy</p>
+                    </div>
+                    <div class="p-2">
+                        <iconify-icon icon="simple-icons:epicgames" style="color: #ccc;" width="30"></iconify-icon>
+                        <iconify-icon icon="mdi:unreal" style="color: #ccc;" width="30" height="30"></iconify-icon>
+                    </div>
+                </div>
+
+
+            </div>
+
+    </div>
+
+    </footer>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
