@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epic Games Store | Download & Play</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+    <link rel="stylesheet" href="fontawesome-free-6.2.1-web/css/all.min.css">
+    <link rel="stylesheet" href="fontawesome-free-6.2.1-web/css/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+</head>
+
+<body>   
+    <div class="sanpham">
+        <div class="container">
+            <div class="row no-gutters" style="margin-top: 15%;">                              
+            </div>
+        </div>
+        <div class="container">
+            <div class="mt-5">
+                
+            </div>
+            <div class="d-flex justify-content-between mb-3 mt-3">
+                <div class="p-2 text-white h4"><a class="p-2 text-white h4" style="text-decoration: none;" href="">All Store <i class="fa-solid fa-caret-right"></i></a></div>
+
+                <div class="p-2">                  
+                        <button ng-click="tang()" type="button" class="btn btn-outline-secondary text-white">Price <i class="fa-solid fa-down-long"></i></button>
+                        <button ng-click="giam()" type="button" class="btn btn-outline-secondary text-white">Price <i class="fa-solid fa-up-long"></i></button>                  
+
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col" ng-repeat="p in products | orderBy : sort | filter:test">
+                    <div class="card-deck rounded" style="width: 300px;">
+                        <div class="card" href="">
+                            <a href="#!detail/{{p.id}}" style="text-decoration: none" >
+                                <img class="card-img-top image" src="{{p.Image}}" alt="Card image cap" width="20px">
+                            </a>
+                            <div class="card-body">
+                                <p class="card-text"><small class="text-muted"
+                                        style="font-size: 12px;">BASE
+                                        GAME</small></p>
+                                <p class="card-font">{{p.name}}</p>
+                                <p class="card-text card-font" style="font-size: 13px;"><a class="sale">{{p.sale}}%</a> <a
+                                        style="text-decoration-line: line-through;">₫{{p.PriceSale | currency:"":0}}</a> ₫{{p.Price | currency:"":0}}</p>
+
+                            </div>
+                        </div>                       
+                    </div>
+                </div>               
+            </div>
+
+        </div>
+  
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col">
+                    <a href=""><img class="img-fluid image" src="img/endgem.png"></a>
+                </div>
+                <div class="col mt-5">
+                    <div>
+                        <p class="text-white" style="font-size: larger;">Explore Our Catalog</p>
+                        <p></p>
+                        <p class="text-muted">Browse by genre, features, price, and more to find your next favorite
+                            game.</p>
+                        <a href="">
+                            <button type="button" class="btn btn-outline-secondary text-white">BROWSE ALL</button>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div> 
+
+        <footer style="background-color: #202020;">
+
+            <div class="footer"
+                style=" border-bottom: 2px solid #cccccc; margin-left: 2%; margin-right: 2%; margin-top: 5%; padding: 3%;">
+
+                <div class="d-flex justify-content-between" style="margin-top: 3%;">
+                    <div class="p-2">
+                        <a href=""><i class="fa-brands fa-facebook"
+                                style="font-size:30px; color: #cccccc; width: 30px;"></i></a>
+                        <a href=""><i class="fa-brands fa-twitter"
+                                style="font-size:30px; color: #cccccc; width: 30px;"></i></a>
+                        <a href=""><i class="fa-brands fa-youtube"
+                                style="font-size:30px; color: #cccccc; width: 30px;"></i></a>
+                    </div>
+                    <div class="p-2">
+                        <a href=""> <i class="gg-chevron-up-r"></i></a>
+                    </div>
+                </div>
+                <p class="text-muted">Resources</p>
+                <p class="text-white">Support-A-Creator &emsp; &emsp; &emsp;&ensp;Fan Art Policy &emsp; Online Services
+                </p>
+                <p class="text-white">Distribute on Epic Games &emsp; UX Research &emsp; &ensp;Community Rules</p>
+                <p class="text-white">Careers &emsp; &emsp; &emsp;&emsp; &emsp;&emsp;&emsp; &emsp;Store EULA &emsp;
+                    &ensp; &ensp;Epic Newsroom</p>
+                <p class="text-white">Company</p>
+                <p></p>
+                <p class="text-muted">Made By Epic Games</p>
+                <p class="text-white">Battle Breakers &emsp; &emsp; &emsp;&ensp;Robo Recall</p>
+                <p class="text-white">Fortnite &emsp; &emsp; &emsp;&emsp;&emsp;&emsp;&ensp;Shadow Complex</p>
+                <p class="text-white">Infinity Blade &emsp; &emsp; &emsp;&ensp;&ensp;Unreal Tournament</p>
+
+
+            </div>
+            <div class="footer" style="margin-left: 2%; margin-right: 2%; margin-top: 2%;">
+                <p class="text-muted" style="font-size: small;">© 2023, Epic Games, Inc. All rights reserved. Epic, Epic
+                    Games, the Epic Games logo, Fortnite, the Fortnite logo, Unreal, Unreal Engine,<br>
+                    the Unreal Engine logo, Unreal Tournament, and the Unreal Tournament logo are trademarks or
+                    registered trademarks of<br>
+                    Epic Games, Inc. in the United States of America and elsewhere. Other brands or product<br>
+                    names are the trademarks of their respective owners. Non-US transactions through Epic Games
+                    International, S.à r.l.</p>
+
+
+                <div class="d-flex justify-content-between">
+                    <div class="p-2">
+                        <p class="text-muted" style="font-size:small;">Terms of Service&emsp; Privacy Policy&emsp; Store
+                            Refund Policy</p>
+                    </div>
+                    <div class="p-2">
+                        <iconify-icon icon="simple-icons:epicgames" style="color: #ccc;" width="30"></iconify-icon>
+                        <iconify-icon icon="mdi:unreal" style="color: #ccc;" width="30" height="30"></iconify-icon>
+                    </div>
+                </div>
+
+
+            </div>
+
+    </div>
+
+    </footer>     
+    </div>
+
+
+
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+      
+</body>
+
+</html>

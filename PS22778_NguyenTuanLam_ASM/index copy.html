@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <title>Epic Games Store | Download & Play</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+    <link rel="stylesheet" href="fontawesome-free-6.2.1-web/css/all.min.css">
+    <link rel="stylesheet" href="fontawesome-free-6.2.1-web/css/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="js/show.js"></script>
+
+
+</head>
+
+<body ng-app="myapp">    
+    <div class="menu">
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #2a2a2a; height: 57px;">
+            <a class="navbar-brand ml-4 mt-2" href="#">
+                <iconify-icon icon="simple-icons:epicgames" width="30" height="30"></iconify-icon>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto" style="background-color: #2a2a2a;">
+                    <li class="nav-item" style="background-color: #2a2a2a;">
+                        <a class="nav-link" href="#"><i><img src="" alt="" style="height: 30px;"></i><span
+                                class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#!/">STORE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#!FAQ">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#!HELP">HELP</a>
+                    </li>                   
+                </ul>
+
+                <ul class="navbar-nav ml-auto" style="background-color: #2a2a2a;">
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                            Language
+                        </a>
+                        <div id="drop-item" class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Tiếng Việt</a>
+                            <a class="dropdown-item" href="#">English</a>
+
+                        </div>
+                    </li>
+                    </li>
+
+                    <li class="nav-item">
+                        <a id="sign" class="nav-link" href="">SIGN IN</a>
+                    </li>
+                    <li>
+                        <a id="download" class="nav-link" href="">AVAILABLE ON PC/ MAC ONLY</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- menu search -->
+        <nav id="menuSearch" class="navbar navbar-expand-lg navbar-dark"
+            style="background-color: #121212; height: 50px;">
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <ul class="navbar-nav mr-auto" style="margin-left: 12%;">
+                    <li class="nav-item">
+                        <form class="form-inline my-2 my-lg-0">
+                            <input ng-model="test" id="search" class="form-control mr-sm-2" type="search" placeholder=" Search store"
+                                aria-label="Search">
+                                
+                        </form>
+                        
+                    </li>
+                    <li class="nav-item active">
+                        <a href="#!timkiem"><button type="button" class="btn btn-dark float-right">Find</button></a>                       
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link float-right" href="#">Discover</a>
+                    </li>
+                    
+                    
+                </ul>
+
+                <!-- phai -->
+                <ul class="navbar-nav ml-auto" style="margin-right: 20%;">
+                    <li class="nav-item">
+                        <a class="nav-link float-right" href="#!cart">Cart <span class="text-white">{{cart.length}}</span></a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a id="cart" class="nav-link" href="">0</a>
+                    </li> -->
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div ng-view></div>
+
+
+
+
+
+
+
+    <script>        
+        var indexCart = 0;
+        var app = angular.module("myapp", ["ngRoute"]);        
+        app.controller("myCtrl", function ($scope, $rootScope, $routeParams, $http) {
+            $scope.addCart = function (p) {
+                if (typeof $rootScope.cart == 'undefined') {
+                    $rootScope.cart = [];
+                };
+                $scope.countCart = $rootScope.cart.length;
+                if ($rootScope.cart.filter(i => i.id == p.id).length == 0) {
+                    $rootScope.cart.push(p);
+                    $rootScope.cart[$scope.countCart].quantity = 1;
+                }
+
+            }
+            $rootScope.sumMoney = 0;
+            if (typeof $rootScope.cart != 'undefined') {
+                for (var i = 0; i < $rootScope.cart.length; i++) {
+                    $rootScope.sumMoney = $rootScope.sumMoney + $rootScope.cart[i].quantity * $rootScope.cart[i].Price;
+                }
+            }
+            $scope.addClick = function (index) {
+                $rootScope.cart[index].quantity = $rootScope.cart[index].quantity + 1;
+                if (typeof $rootScope.cart != 'undefined') {
+                    $rootScope.sumMoney = 0;
+                    for (var i = 0; i < $rootScope.cart.length; i++) {
+                        $rootScope.sumMoney = $rootScope.sumMoney + $rootScope.cart[i].quantity * $rootScope.cart[i].Price;
+                    }
+                }
+            }
+            $scope.subClick = function (index) {
+                if ($rootScope.cart[index].quantity > 1) {
+                    $rootScope.cart[index].quantity = $rootScope.cart[index].quantity - 1;
+                }
+
+                if (typeof $rootScope.cart != 'undefined') {
+                    $rootScope.sumMoney = 0;
+                    for (var i = 0; i < $rootScope.cart.length; i++) {
+                        $rootScope.sumMoney = $rootScope.sumMoney + $rootScope.cart[i].quantity * $rootScope.cart[i].Price;
+                    }
+                }
+            }
+            $scope.delProduct = function (index) {
+                $rootScope.cart.splice(index, 1);
+                if (typeof $rootScope.cart != 'undefined') {
+                    $rootScope.sumMoney = 0;
+                    for (var i = 0; i < $rootScope.cart.length; i++) {
+                        $rootScope.sumMoney = $rootScope.sumMoney + $rootScope.cart[i].quantity * $rootScope.cart[i].Price;
+                    }
+                }
+            }
+            
+            $scope.products=[];
+            $http.get('Products.json').then(function(reponse){
+                $scope.products = reponse.data;
+            })
+            
+            $scope.index = $routeParams.url;
+            $scope.sort='Price';
+            $scope.tang=function(){
+                $scope.sort='Price';
+            }
+            $scope.giam=function(){
+                $scope.sort='-Price';
+            }
+            // $scope.xemthem = function(n){
+            //     $scope.xemthems = 'VIEW MORE';
+            //     if(n == true){
+            //         $scope.xemthems = 'VIEW MORE';
+            //     }else{
+            //         $scope.xemthems = 'VIEW LESS';
+            //     }
+                
+            // }
+
+        });
+        app.config(function ($routeProvider) {
+            $routeProvider
+                .when("/detail/:url", {
+                    templateUrl: "detailProduct.html?" + Math.random(),
+                    controller: "myCtrl"
+                })
+                .when("/cart", {
+                    templateUrl: "cart.html?" + Math.random(),
+                    controller: "myCtrl"
+                })
+                .when("/timkiem", {
+                    templateUrl: "AllStore.html",
+                    controller: "myCtrl"
+                })
+                .when("/FAQ", {
+                    templateUrl: "FAQ.html",
+                    controller: "myCtrl"
+                })
+                .when("/HELP", {
+                    templateUrl: "Help.html",
+                    controller: "myCtrl"
+                })
+                .otherwise({
+                    templateUrl: "Store.html",
+                    controller: "myCtrl"
+                })
+        });
+        
+    </script>
+   
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
